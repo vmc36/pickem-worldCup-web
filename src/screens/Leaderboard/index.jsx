@@ -17,7 +17,7 @@ function LeaderboardContent() {
   const [user] = useContext(AuthContext);
 
   async function fetchLeaderboard() {
-    const scoresLimit = 20;
+    const scoresLimit = 25;
 
     const scoresResult = await leaderboardApi.getLeaderboard();
     const userScoreIndex = scoresResult.findIndex(
