@@ -60,6 +60,10 @@ const MatchCardWrapper = tailed("article")`
 export function MatchCard({ match, hunch, disabled }) {
   const status = getCardStatus(match, hunch);
   const teamsAreDefined = match.homeTeam && match.awayTeam;
+  const gameResult =
+    match.awayTeamScore !== null
+      ? `${match.homeTeam.abbr} ${match.homeTeamScore} x  ${match.awayTeamScore} ${match.awayTeam.abbr}`
+      : null;
 
   const [sendState, setSendState] = useState("initial");
 
@@ -79,6 +83,12 @@ export function MatchCard({ match, hunch, disabled }) {
           {match.stage} {!teamsAreDefined && "(A definir)"}
         </h2>
         <time dateTime={match.datetime}>{formatTimeTitle(match.datetime)}</time>
+        {gameResult ? (
+          <>
+            <p className="mt-2">Resultado Final:</p>
+            <p>{gameResult}</p>
+          </>
+        ) : null}
       </header>
 
       <MatchCardForm
