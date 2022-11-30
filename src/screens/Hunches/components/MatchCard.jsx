@@ -86,7 +86,7 @@ export function MatchCard({ match, hunch, disabled }) {
         {gameResult ? (
           <>
             <p className="mt-2">Resultado Final:</p>
-            <p>{gameResult}</p>
+            <p className="font-bold">{gameResult}</p>
           </>
         ) : null}
       </header>
